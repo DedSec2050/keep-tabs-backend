@@ -1,0 +1,77 @@
+keep-tabs/
+│
+├── core/                          # Core project config & bootstrap logic
+│   ├── __init__.py
+│   ├── settings/                  # Environment-specific settings
+│   │   ├── __init__.py
+│   │   ├── base.py                # Common settings
+│   │   ├── dev.py
+│   │   └── prod.py
+│   ├── urls.py                    # Root URL dispatcher
+│   ├── wsgi.py
+│   └── asgi.py
+│
+├── apps/                          # Feature-based Django apps
+│   ├── users/
+│   │   ├── models/
+│   │   ├── views/
+│   │   ├── serializers/
+│   │   ├── services/
+│   │   ├── urls/
+│   │   │   ├── v1.py              # API v1 for users
+│   │   │   └── v2.py              # API v2 for users (if/when needed)
+│   │   ├── authentication.py
+│   │   ├── permissions.py
+│   │   ├── validators.py
+│   │   ├── signals.py
+│   │   └── apps.py
+│
+│   ├── resumes/
+│   │   ├── models/
+│   │   ├── views/
+│   │   ├── serializers/
+│   │   ├── services/
+│   │   ├── urls/
+│   │   │   └── v1.py
+│   │   └── apps.py
+│
+│   ├── cover_letters/
+│   ├── job_applications/
+│   ├── job_tags/
+│   ├── custom_fields/
+│
+│   └── shared/                    # Cross-cutting concerns
+│       ├── models/
+│       ├── utils/
+│       ├── services/
+│       ├── mixins/
+│       └── constants.py
+│
+├── middleware/                    # Entirely custom middleware
+│   ├── __init__.py
+│   ├── auth.py                    # Token/session middleware
+│   ├── request_logger.py
+│   ├── cors.py                    # Custom CORS handler
+│   └── exception_handler.py       # Global error formatting
+│
+├── base/                          # Reusable base classes for models, views, etc.
+│   ├── base_model.py
+│   ├── base_viewset.py
+│   ├── base_serializer.py
+│
+├── api/                           # Versioned API routers
+│   ├── __init__.py
+│   ├── v1/
+│   │   ├── __init__.py
+│   │   ├── urls.py                # Routes for v1 across all apps
+│   │   └── views.py (optional shared views across modules)
+│   ├── v2/
+│   │   ├── __init__.py
+│   │   └── urls.py
+│
+├── manage.py
+├── requirements/
+│   ├── base.txt
+│   ├── dev.txt
+│   └── prod.txt
+└── README.md
